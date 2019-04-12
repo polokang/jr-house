@@ -17,3 +17,12 @@ color: #1890ff;
     
     margin-left: 20px;
 }
+.register-page {
+    position: relative;
+    width: 500px;
+    left:480px;
+}
+.register-page>h1{
+   margin-left: 200px;
+   color: #1890ff;
+}
