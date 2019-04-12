@@ -1,11 +1,11 @@
-import React from "react";
-import { Layout } from "antd";
+import React from "react"
+import { Layout } from "antd"
 
 export default function Footer() {
-  const { Footer } = Layout;
+  const { Footer } = Layout
   return (
     <Footer style={{ textAlign: "center" }}>
-      Ant Design ©2018 Created by Ant UED
+      Hunter Design ©2018 Created by Hunter Company.
     </Footer>
-  );
+  )
 }
