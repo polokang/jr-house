@@ -5,7 +5,7 @@ export default function Footer() {
   const { Footer } = Layout
   return (
     <Footer style={{ textAlign: "center" }}>
-      Hunter Design ©2018 Created by Hunter Company.
+      2B Design ©2019 Created by 2B Company.
     </Footer>
   )
 }

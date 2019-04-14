@@ -11,7 +11,9 @@ export default class House extends React.Component {
     return (
       <Content style={{ padding: "0 50px" }}>
         <Layout style={{ padding: "24px 0", background: "#fff" }}>
-          <Content style={{ padding: "0 24px", minHeight: 280 }}>User</Content>
+          <Content style={{ padding: "0 24px", minHeight: 280 }}>
+            Setting
+          </Content>
         </Layout>
       </Content>
     )
