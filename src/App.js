@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
 import "./style/login.css";
-import Login from "./login/login";
-import Register from "./register/register";
+import Login from "./content/login";
+import Loginchannel from "./content/Loginchannel";
+import Register from "./content/register";
 class App extends Component {
   render() {
     // const { SubMenu } = Menu;
@@ -10,7 +11,8 @@ class App extends Component {
     return (
       <div className="container">
        {/* <Login/> */}
-       <Register/>
+       {/* <Register/> */}
+       <Loginchannel/>
       </div>
     );
   }
