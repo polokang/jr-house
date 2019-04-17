@@ -1,8 +1,6 @@
 import React from "react";
 import Login from "./login";
-import Register from "./register";
 import{Login_url} from "../API/login";
-import { Switch } from "antd";
 export default class Loginchannel extends React.Component{
     constructor(props){
         super(props);
