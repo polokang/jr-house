@@ -1,6 +1,8 @@
 import React from "react";
 import Login from "./login";
+import Register from "./register";
 import{Login_url} from "../API/login";
+import { Switch } from "antd";
 export default class Loginchannel extends React.Component{
     constructor(props){
         super(props);
@@ -24,9 +26,9 @@ export default class Loginchannel extends React.Component{
      Login_url(this.state.Email,this.state.password).then(data=>{
       console.log(data);
     });
-     
       
      }
+   
         
     render(){
         const {Email,password}=this.state;
@@ -36,7 +38,8 @@ export default class Loginchannel extends React.Component{
                     this.Inputemail(event);
                 }} Inputpassword={(event)=>{
                     this.Inputpassword(event)
-                }} handleclick={()=>{this.handleclick()}}/>
+                }} handleclick={()=>{this.handleclick()}}
+                />
             </React.Fragment>
         )
     }
