@@ -7,7 +7,6 @@ export default class Loginchannel extends React.Component{
          this.state={
             Email: "",
             password:"",
-            handleclick: false
         }
     }
     // event.target.value is the value that user input
@@ -24,9 +23,9 @@ export default class Loginchannel extends React.Component{
      Login_url(this.state.Email,this.state.password).then(data=>{
       console.log(data);
     });
-     
       
      }
+   
         
     render(){
         const {Email,password}=this.state;
@@ -35,8 +34,9 @@ export default class Loginchannel extends React.Component{
                 <Login Email={Email} password={password} Inputemail={(event)=>{
                     this.Inputemail(event);
                 }} Inputpassword={(event)=>{
-                    this.Inputpassword(event)
-                }} handleclick={()=>{this.handleclick()}}/>
+                    this.Inputpassword(event);
+                }} handleclick={()=>{this.handleclick();}}
+                />
             </React.Fragment>
         )
     }

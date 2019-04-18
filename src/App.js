@@ -5,6 +5,7 @@ import "./style/login.css";
 import Login from "./content/login";
 import Loginchannel from "./content/Loginchannel";
 import Register from "./content/register";
+<<<<<<< HEAD
 =======
 import React, { Component } from "react"
 import "./App.css"
@@ -16,6 +17,9 @@ import LeftMenu from "./UI/LeftMenu"
 import TopMenu from "./UI/TopMenu"
 
 >>>>>>> ad2de924823e6b3d4a06d5a7f1a234c36163029f
+=======
+import Routes from "./App/Routes";
+>>>>>>> Tony
 class App extends Component {
   state = {
     top: 0,
@@ -29,7 +33,8 @@ class App extends Component {
       <div className="container">
        {/* <Login/> */}
        {/* <Register/> */}
-       <Loginchannel/>
+       <Routes/>
+       {/* <Loginchannel/> */}
       </div>
     );
 =======

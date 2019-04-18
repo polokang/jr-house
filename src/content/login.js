@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import { Input, Icon, Button } from "antd";
 export default class Login extends React.Component {
   // 整个位置想弄一个function onsubmit 调用 如果用户名 密码正确 就去一个页面  否则跳回 login 页面<login /> 这样子会把它放在类似weatherchannel.js中
@@ -12,10 +13,12 @@ export default class Login extends React.Component {
           <Input
             placeholder="Enter your Email"
             prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
-            value={Email}
+             value={Email}
             onChange={Inputemail}
           />
-          <Input.Password placeholder="input password" value={password} onChange={Inputpassword}/>
+          <Input.Password placeholder="input password" 
+            value={password}
+           onChange={Inputpassword}/>
           <div className="button">
             <Button type="primary" 
             // htmlType="submit"
@@ -24,13 +27,14 @@ export default class Login extends React.Component {
             >
               Log in
             </Button>
+            <Link to="/register">
             <Button
               type="primary"
-              htmlType="submit"
               className="register-button"
             >
               Register
             </Button>
+            </Link>
           </div>
         </form>
       </div>
