@@ -4,7 +4,7 @@ import "./styles/login.css";
 import Login from "./content/login";
 import Loginchannel from "./content/Loginchannel";
 import Register from "./content/register";
-import Routes from "./App/Routes";
+import Routes from "./Routes";
 class App extends Component {
   render() {
     // const { SubMenu } = Menu;
