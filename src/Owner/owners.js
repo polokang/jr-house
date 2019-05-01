@@ -1,5 +1,6 @@
 import React from "react"
-import { Layout, Row, Col } from "antd"
+import { Layout, Row, Col, Button, Icon } from "antd"
+import { Link } from "react-router-dom"
 import OwnerCard from "./OwnerCard"
 
 export default class Owner extends React.Component {
@@ -20,8 +21,14 @@ export default class Owner extends React.Component {
   render() {
     const { Content } = Layout
     const { OwnerInfo } = this.state
+
     return (
       <Content style={{ padding: "10px 10px" }}>
+        <Link to={`/owners/edit/NEW`} getFieldDecorator="">
+          <Button type="primary" onClick={this.showDrawer}>
+            <Icon type="plus" /> New Owner
+          </Button>
+        </Link>
         <Row style={{ paddingTop: "10px" }}>
           <Col span={8}>
             <OwnerCard OwnerInfo={OwnerInfo} />
