@@ -1,6 +1,6 @@
 import React from "react";
 import Login from "./login";
-import{Login_url} from "../API/login";
+import{Login_url} from "../APi/login";
 export default class Loginchannel extends React.Component{
     constructor(props){
         super(props);

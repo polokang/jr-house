@@ -1,6 +1,6 @@
 import React from "react";
 import Register from "./register";
-import { Register_url } from "../API/register";
+import { Register_url } from "../APi/register";
 export default class Registerchannel extends React.Component {
   constructor(props) {
     super(props);

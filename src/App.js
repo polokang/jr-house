@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import "./style/login.css";
+import "./styles/login.css";
 import Login from "./content/login";
 import Loginchannel from "./content/Loginchannel";
 import Register from "./content/register";
