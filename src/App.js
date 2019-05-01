@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import "./style/login.css";
+import "./styles/login.css";
 import "./App.css"
 import "./styles/main.css"
 import { Layout, Affix } from "antd"
