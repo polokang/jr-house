@@ -11,7 +11,6 @@ import TopMenu from "./UI/TopMenu"
 import Login from "./content/login";
 import Loginchannel from "./content/Loginchannel";
 import Register from "./content/register";
-import Routes from "./App/Routes";
 class App extends Component {
   state = {
     top: 0,
