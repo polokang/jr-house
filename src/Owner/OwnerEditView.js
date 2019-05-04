@@ -58,7 +58,7 @@ class OwnerEditView extends React.Component {
     e.preventDefault()
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        values.fullName = values.firstName + values.lastName
+        values.fullName = values.firstName + " " + values.lastName
         let company = {}
         company.state = values.company[0]
         company.city = values.company[1]
@@ -197,6 +197,10 @@ class OwnerEditView extends React.Component {
                 }
               ]
             })(<Cascader options={company} />)}
+          </Form.Item>
+
+          <Form.Item label="Introduction">
+            {getFieldDecorator("desc")(<Input.TextArea />)}
           </Form.Item>
 
           <Form.Item label="Upload" extra="Upload Avatar">
