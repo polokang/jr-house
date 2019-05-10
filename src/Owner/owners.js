@@ -24,9 +24,9 @@ export default class Owner extends React.Component {
   render() {
     const { Content } = Layout
     const items = []
-    for (const [, value] of this.state.OwnerList.entries()) {
+    for (const [key, value] of this.state.OwnerList.entries()) {
       items.push(
-        <Col span={8} style={{ paddingTop: 20 }}>
+        <Col span={8} style={{ paddingTop: 20 }} key={key}>
           <OwnerCard OwnerInfo={value} />
         </Col>
       )
@@ -34,7 +34,7 @@ export default class Owner extends React.Component {
     return (
       <React.Fragment>
         <Content style={{ padding: "10px 10px" }}>
-          <Link to={`/owners/edit/NEW`} getFieldDecorator="">
+          <Link to={`/owners/edit/NEW`}>
             <Button type="primary" onClick={this.showDrawer}>
               <Icon type="plus" /> New Owner
             </Button>

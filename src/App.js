@@ -6,6 +6,8 @@ import Footer from "./UI/Footer"
 import Routes from "./Routes"
 import LeftMenu from "./UI/LeftMenu"
 import TopMenu from "./UI/TopMenu"
+import LoginForm from "./UI/Login"
+import { isLoggedIn } from "./Api/auth"
 
 class App extends Component {
   state = {
@@ -13,21 +15,40 @@ class App extends Component {
     bottom: 10
   }
   render() {
-    return (
-      <Layout>
-        <Affix offsetTop={this.state.top}>
-          <TopMenu />
-        </Affix>
+    if (isLoggedIn()) {
+      return (
         <Layout>
-          <Layout>
-            <LeftMenu />
+          <Affix offsetTop={this.state.top}>
+            <TopMenu />
+          </Affix>
 
-            <Routes />
+          <Layout>
+            <Layout>
+              <LeftMenu />
+              <Routes />
+            </Layout>
           </Layout>
+
+          <Footer />
         </Layout>
-        <Footer />
-      </Layout>
-    )
+      )
+    } else {
+      return (
+        <Layout>
+          <Affix offsetTop={this.state.top}>
+            <TopMenu />
+          </Affix>
+
+          <Layout style={{ alignItems: "center" }}>
+            <div className="antd-pro-pages-user-login-main">
+              <LoginForm />
+            </div>
+          </Layout>
+
+          <Footer />
+        </Layout>
+      )
+    }
   }
 }
 

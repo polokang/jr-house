@@ -1,11 +1,14 @@
 import React from "react"
-import { Layout, Row, Col } from "antd"
+import { Layout, Row, Col, Button, Icon } from "antd"
+import { Link } from "react-router-dom"
 import HouseCard from "./HouseCard"
+import { fetchAllHouse } from "../Api/house"
 
 export default class House extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      HouseList: [],
       HouseInfo: {
         imgSrc:
           "https://cdn6.ep.dynamics.net/s3/rw-propertyimages/6dbb-H2082518-hires.31491-74-Malbon-213.jpg.ashx?width=720&height=540&mode=crop&scale=both&anchor=middlecenter&quality=80",
@@ -17,34 +20,38 @@ export default class House extends React.Component {
       }
     }
   }
+
+  componentDidMount() {
+    fetchAllHouse().then(data => {
+      this.setState({
+        HouseList: data,
+        HouseInfo: data[0]
+      })
+    })
+  }
   render() {
     const { Content } = Layout
-    const { HouseInfo } = this.state
+    const items = []
+    for (const [key, value] of this.state.HouseList.entries()) {
+      items.push(
+        <Col span={8} style={{ paddingTop: 20 }} key={key}>
+          <HouseCard HouseInfo={value} />
+        </Col>
+      )
+    }
     return (
-      <Content style={{ padding: "10px 10px" }}>
-        <Row style={{ paddingTop: "10px" }}>
-          <Col span={8}>
-            <HouseCard HouseInfo={HouseInfo} />
-          </Col>
-          <Col span={8}>
-            <HouseCard HouseInfo={HouseInfo} />
-          </Col>
-          <Col span={8}>
-            <HouseCard HouseInfo={HouseInfo} />
-          </Col>
-        </Row>
-        <Row style={{ paddingTop: "10px" }}>
-          <Col span={8}>
-            <HouseCard HouseInfo={HouseInfo} />
-          </Col>
-          <Col span={8}>
-            <HouseCard HouseInfo={HouseInfo} />
-          </Col>
-          <Col span={8}>
-            <HouseCard HouseInfo={HouseInfo} />
-          </Col>
-        </Row>
-      </Content>
+      <React.Fragment>
+        <Content style={{ padding: "10px 10px" }}>
+          <Link to={`/houses/edit/NEW`}>
+            <Button type="primary" onClick={this.showDrawer}>
+              <Icon type="plus" /> New House
+            </Button>
+          </Link>
+          <Row type="flex" justify="start" gutter={12}>
+            {items}
+          </Row>
+        </Content>
+      </React.Fragment>
     )
   }
 }

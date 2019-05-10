@@ -26,15 +26,6 @@ export function addOwner(Owner, file) {
     })
 }
 
-// export function getAllOwners() {
-//   return axios.get(`${API_BASE_URL}/owner`).then(response => {
-//     const ownerList = response.data.data
-//     const arr = []
-//     ownerList.map(item => arr.push(item))
-//     return arr
-//   })
-// }
-
 export function getAllOwners() {
   return axios.get(`${API_BASE_URL}/owner`).then(response => {
     const ownerList = response.data.data
