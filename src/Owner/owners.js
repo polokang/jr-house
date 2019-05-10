@@ -1,50 +1,49 @@
 import React from "react"
-import { Layout, Row, Col } from "antd"
+import { Layout, Row, Col, Button, Icon } from "antd"
+import { Link } from "react-router-dom"
 import OwnerCard from "./OwnerCard"
+import { getAllOwners } from "../Api/owner"
 
 export default class Owner extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      OwnerInfo: {
-        imgSrc:
-          "https://cdn6.ep.dynamics.net/s3/rw-media/memberphotos/2bcb527a-a824-4074-a000-60bddbf0402e.jpg?mode=pad&scale=both&maxwidth=285&quality=80&anchor=middleleft&format=png",
-        avaSrc:
-          "https://www.raywhite.com/wp-content/resources/uiframework/img/rw-logo-2017.svg",
-        title: "Ela Milne",
-        desc:
-          "Senior Sales and Marketing Consultant, Ray White Eight Mile Plains."
-      }
+      OwnerList: []
     }
   }
+
+  componentDidMount() {
+    getAllOwners().then(data => {
+      this.setState({
+        OwnerList: data,
+        OwnerInfo: data[0]
+      })
+    })
+  }
+
   render() {
     const { Content } = Layout
-    const { OwnerInfo } = this.state
+    const items = []
+    for (const [key, value] of this.state.OwnerList.entries()) {
+      items.push(
+        <Col span={8} style={{ paddingTop: 20 }} key={key}>
+          <OwnerCard OwnerInfo={value} />
+        </Col>
+      )
+    }
     return (
-      <Content style={{ padding: "10px 10px" }}>
-        <Row style={{ paddingTop: "10px" }}>
-          <Col span={8}>
-            <OwnerCard OwnerInfo={OwnerInfo} />
-          </Col>
-          <Col span={8}>
-            <OwnerCard OwnerInfo={OwnerInfo} />
-          </Col>
-          <Col span={8}>
-            <OwnerCard OwnerInfo={OwnerInfo} />
-          </Col>
-        </Row>
-        <Row style={{ paddingTop: "10px" }}>
-          <Col span={8}>
-            <OwnerCard OwnerInfo={OwnerInfo} />
-          </Col>
-          <Col span={8}>
-            <OwnerCard OwnerInfo={OwnerInfo} />
-          </Col>
-          <Col span={8}>
-            <OwnerCard OwnerInfo={OwnerInfo} />
-          </Col>
-        </Row>
-      </Content>
+      <React.Fragment>
+        <Content style={{ padding: "10px 10px" }}>
+          <Link to={`/owners/edit/NEW`}>
+            <Button type="primary" onClick={this.showDrawer}>
+              <Icon type="plus" /> New Owner
+            </Button>
+          </Link>
+          <Row type="flex" justify="start" gutter={12}>
+            {items}
+          </Row>
+        </Content>
+      </React.Fragment>
     )
   }
 }

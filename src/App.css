@@ -40,3 +40,10 @@
     transform: rotate(360deg);
   }
 }
+
+.antd-pro-pages-user-login-main {
+  width: 388px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: block;
+}

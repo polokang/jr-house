@@ -8,31 +8,48 @@ import Footer from "./UI/Footer"
 import Routes from "./Routes"
 import LeftMenu from "./UI/LeftMenu"
 import TopMenu from "./UI/TopMenu"
-import Login from "./content/login";
-import Loginchannel from "./content/Loginchannel";
-import Register from "./content/register";
+import LoginForm from "./UI/Login"
+import { isLoggedIn } from "./Api/auth"
 class App extends Component {
   state = {
     top: 0,
     bottom: 10
   }
   render() {
-    return (
-      <Layout>
-        <Affix offsetTop={this.state.top}>
-          <TopMenu />
-        </Affix>
+    if (isLoggedIn()) {
+      return (
         <Layout>
+          <Affix offsetTop={this.state.top}>
+            <TopMenu />
+          </Affix>
+
           <Layout>
-            <LeftMenu />
-
-            <Routes />
+            <Layout>
+              <LeftMenu />
+              <Routes />
+            </Layout>
           </Layout>
-        </Layout>
-        <Footer />
-      </Layout>
-    )
 
+          <Footer />
+        </Layout>
+      )
+    } else {
+      return (
+        <Layout>
+          <Affix offsetTop={this.state.top}>
+            <TopMenu />
+          </Affix>
+
+          <Layout style={{ alignItems: "center" }}>
+            <div className="antd-pro-pages-user-login-main">
+              <LoginForm />
+            </div>
+          </Layout>
+
+          <Footer />
+        </Layout>
+      )
+    }
   }
 }
 
