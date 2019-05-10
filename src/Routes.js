@@ -5,9 +5,10 @@ import HouseEditView from "./House/HouseEditView"
 import Users from "./User/users"
 import Owner from "./Owner/owners"
 import OwnerEditView from "./Owner/OwnerEditView"
-
 export default () => (
   <Switch>
+    <Route exact path="/" component={Loginchannel}/>
+    <Route exact path="/register" component={Registerchannel}/>
     <Route exact path="/" component={House} />
     <Route exact path="/houses" component={House} />
     <Route exact path="/houses/edit/NEW" component={HouseEditView} />

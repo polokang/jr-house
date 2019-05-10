@@ -1,4 +1,6 @@
-import React, { Component } from "react"
+
+import React, { Component } from "react";
+import "./styles/login.css";
 import "./App.css"
 import "./styles/main.css"
 import { Layout, Affix } from "antd"
@@ -8,7 +10,6 @@ import LeftMenu from "./UI/LeftMenu"
 import TopMenu from "./UI/TopMenu"
 import LoginForm from "./UI/Login"
 import { isLoggedIn } from "./Api/auth"
-
 class App extends Component {
   state = {
     top: 0,
